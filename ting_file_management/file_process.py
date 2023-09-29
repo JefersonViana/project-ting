@@ -33,12 +33,14 @@ def remove(instance: Queue):
     )
 
 
-def file_metadata(instance, position):
-    """Aqui irá sua implementação"""
+def file_metadata(instance: Queue, position):
+    try:
+        response = instance.read_instance()[position]
+        sys.stdout.write(str(response))
+    except IndexError:
+        sys.stderr.write("Posição inválida")
 
 
-# project = Queue()
-# process("statics/arquivo_teste.txt", project)
-# remove(project)
-# process("statics/nome_pedro.txt", project)
-# print(process("statics/arquivo_teste.txt", project))
+project = Queue()
+process("statics/novo_paradigma_globalizado-min.txt", project)
+file_metadata(project, 0)
