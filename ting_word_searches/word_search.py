@@ -1,4 +1,3 @@
-# from ting_file_management.file_process import process
 from ting_file_management.queue import Queue
 
 
@@ -21,14 +20,13 @@ def exists_word_aux(word, instance: Queue):
 
 
 def exists_word(word, instance: Queue):
-    return exists_word_aux(word, instance)
+    data = exists_word_aux(word, instance)
+    for file in data:
+        file["ocorrencias"] = [
+            {"linha": xablau["linha"]} for xablau in file["ocorrencias"]
+        ]
+    return data
 
 
 def search_by_word(word, instance: Queue):
     return exists_word_aux(word, instance)
-
-
-# project = Queue()
-# print(process("statics/nome_pedro.txt", project), "\n", "\n")
-# word = exists_word("xablau", project)
-# print(word)
