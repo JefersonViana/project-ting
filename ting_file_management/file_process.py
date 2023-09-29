@@ -39,8 +39,3 @@ def file_metadata(instance: Queue, position):
         sys.stdout.write(str(response))
     except IndexError:
         sys.stderr.write("Posição inválida")
-
-
-project = Queue()
-process("statics/novo_paradigma_globalizado-min.txt", project)
-file_metadata(project, 0)
